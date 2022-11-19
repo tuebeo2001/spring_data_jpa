@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Builder
 @ToString()
 public class CourseMaterialEntity {
+    //commit
     @Id
     @SequenceGenerator(
             name = "course_material_sequence",
