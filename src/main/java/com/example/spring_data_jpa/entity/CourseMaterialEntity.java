@@ -9,7 +9,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString()
+@ToString(
+exclude = "course"
+)
 public class CourseMaterialEntity {
     //commit
     // commit trong master
@@ -28,7 +30,8 @@ public class CourseMaterialEntity {
 
     @OneToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER
+            fetch = FetchType.LAZY,
+            optional = false
     )
     @JoinColumn(
             name = "course_id",

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -26,4 +27,13 @@ public class CourseEntity {
     private Long courseId;
     private String title;
     private Integer credit;
+
+    @OneToOne(
+            mappedBy = "course"
+    )
+    private CourseMaterialEntity courseMaterial;
+
+    @ManyToMany
+    private List<StudentEntity> students;
+
 }
